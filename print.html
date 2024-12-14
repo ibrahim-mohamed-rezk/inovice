@@ -27,15 +27,19 @@
 <body>
   <h1>Invoice Printing</h1>
   <p>Click the button below to print the invoice:</p>
-  <button onclick="printInvoice()">Print Invoice</button>
+  <button onclick="printInvoice(event)">Print Invoice</button>
 
   <script>
-    function printInvoice() {
+    function printInvoice(event) {
+      event.preventDefault();
+      console.log("start");
       const invoiceWindow = window.open('index.html', '_blank');
       
       invoiceWindow.onload = () => {
         invoiceWindow.print();
       };
+      console.log("done");
+      
     }
   </script>
 </body>
